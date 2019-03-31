@@ -11,28 +11,28 @@ public class Kot {
 	
 	
 	public String getImie(){
-		return this.imie;
+		return imie;
 	}
 	public void setImie(String imie){
 		this.imie = imie;
 	}
 	
 	public Date getDataUrodzenia(){
-		return this.dataUrodzenia;
+		return dataUrodzenia;
 	}
 	public void setDataUrodzenia(Date dataUrodzenia){
 		this.dataUrodzenia = dataUrodzenia;
 	}
 	
 	public float getWaga(){
-		return this.waga;
+		return waga;
 	}
 	public void setWaga(float waga){
 		this.waga = waga;
 	}
 	
 	public String getOpiekun(){
-		return this.opiekun;
+		return opiekun;
 	}
 	public void setOpiekun(String opiekun){
 		this.opiekun = opiekun;
