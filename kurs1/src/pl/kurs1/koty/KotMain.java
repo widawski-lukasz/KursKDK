@@ -8,10 +8,12 @@ import java.util.regex.Pattern;
 public class KotMain {
 
 	static Scanner inputScanner = new Scanner(System.in);
+	static KotDAO listaKotow = new KotDAO();
 	
 	
 	public static void main(String[] args){
 		Kot kot1 = new Kot();
+		
 		
 		System.out.println("Give name of a cat");
 		kot1.setImie(getUserInput());
@@ -48,6 +50,7 @@ public class KotMain {
             }
         } while (waga == 0);
 		
+		listaKotow.dodajKota(kot1);
 		
 		System.out.println(kot1.przedstawSie());
 	}
