@@ -12,9 +12,50 @@ public class KotMain {
 	
 	
 	public static void main(String[] args){
+	
+		
+		int menuFlag = 0;
+		Pattern wzorzecMenu = Pattern.compile("[1-3]{1}");
+		String menuWybor;
+		
+		
+		do {
+			System.out.println("Menu: \n 1.Dodaj kota \n 2.Wypisz kota \n 3.Wyjœcie");
+			menuWybor = getUserInput();
+			if(wzorzecMenu.matcher(menuWybor).matches()) {
+				menuFlag = 1;
+			}	
+		
+		if(menuWybor.equals("1")) {
+			dodawanieKotow();
+		}
+		else if (menuWybor.equals("2")){
+			if(listaKotow.lista.size() == 0 ) {
+				System.out.println("Lista jest pusta");
+				System.exit(0);
+			}
+			System.out.println("Którego kota chcesz wybraæ?");
+			for (Kot petla : listaKotow.lista) {
+				System.out.println(petla.getID() + ": " + petla.getImie());
+			}
+			String kotWybor = getUserInput();
+			Pattern wzorzecWyborKota = Pattern.compile("[0-9]+");
+			if(wzorzecWyborKota.matcher(kotWybor).matches()) {
+				int kotWyborInt = Integer.parseInt(kotWybor);
+				Kot wybranyKot = listaKotow.lista.get(kotWyborInt);
+				System.out.println("Wybrany kot to: " + wybranyKot.przedstawSie());
+			} else {
+				System.out.println("Nie znaleziono kota o tym numerze");
+			}	
+	} else if (menuWybor.equals("3")){
+		System.exit(0);
+	}
+	} while (!menuWybor.equals("3"));
+	}
+		
+	private static void dodawanieKotow() {
+		
 		Kot kot1 = new Kot();
-		
-		
 		System.out.println("Give name of a cat");
 		kot1.setImie(getUserInput());
 		
@@ -36,7 +77,6 @@ public class KotMain {
 		} while (kot1.getDataUrodzenia() == null);
 		
 		
-		
 		Pattern wzorzecWagi = Pattern.compile("[0-9]+(\\.[0-9]+)?");
         String wagaWczytana;
         int waga = 0;
@@ -52,10 +92,8 @@ public class KotMain {
 		
 		listaKotow.dodajKota(kot1);
 		
-		System.out.println(kot1.przedstawSie());
 	}
 	
-
 	public static String getUserInput(){
 		return inputScanner.nextLine().trim();
 	}

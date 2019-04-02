@@ -8,6 +8,13 @@ public class Kot {
 	private Date dataUrodzenia;
 	private float waga;
 	private String opiekun;
+	private static int statID;
+	private int ID;
+	
+	public Kot() {
+		statID++;
+		this.ID = statID -1;
+	}
 	
 	
 	public String getImie(){
@@ -38,8 +45,13 @@ public class Kot {
 		this.opiekun = opiekun;
 	}
 	
+	public int getID() {
+		return ID;
+	}
+
+	
 	
 	public String przedstawSie(){
-		return this.imie + this.opiekun + this.dataUrodzenia;
+		return this.imie + " " + this.opiekun + " " + this.dataUrodzenia;
 	}
 }

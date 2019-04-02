@@ -3,19 +3,17 @@ package pl.kurs1.koty;
 import java.util.List;
 import java.util.ArrayList;
 
-import pl.kurs1.koty.Kot;
-
 
 public class KotDAO {
 
-	private List<Kot> lista;
+	List<Kot> lista;
 	
 	public KotDAO() {
 		this.lista = new ArrayList<Kot>();
 	}
 	
-	public void dodajKota(Kot kot) {
-		lista.add(kot);
-		System.out.println("dodano kota");
+	public void dodajKota(Kot kot1) {
+		lista.add(kot1);
+		System.out.println("Dodano kota o numerze: " + kot1.getID());
 	}
 }
